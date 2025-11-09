@@ -1,0 +1,1123 @@
+:root {
+  --primary-color: #c71585;
+  --secondary-color: dodgerblue;
+  --background-color: black;
+  --highlight-color: white;
+  --card-bg: linear-gradient(135deg, #ff69b4 0%, #ffb6c1 50%, #ffffff 100%);
+  --card-text: #333333;
+}
+
+/* MOBILE-FIRST OPTIMIZATION */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.App {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 15px;
+  background: linear-gradient(135deg, #c71585 0%, dodgerblue 50%, #c71585 100%);
+}
+
+/* Improved Mobile Music Controls - MOVED TO BOTTOM */
+.global-music-controls {
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  padding: 12px 20px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 1000;
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+  max-width: 90%;
+  min-width: 280px;
+  justify-content: center;
+}
+
+.music-btn {
+  padding: 12px 20px;
+  background: var(--primary-color);
+  color: var(--highlight-color);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  min-height: 44px;
+  min-width: 120px;
+  touch-action: manipulation;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.music-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(199, 21, 133, 0.4);
+}
+
+.music-status {
+  font-size: 13px;
+  opacity: 0.9;
+  color: var(--primary-color);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* MOBILE CONTAINER OPTIMIZATION */
+.welcome-container,
+.name-container,
+.quiz-intro-container,
+.quiz-container,
+.qualities-container,
+.finale-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  width: 100%;
+  padding: 15px 15px 80px; /* Added bottom padding for music controls */
+}
+
+.welcome-content,
+.name-content,
+.quiz-intro-content,
+.quiz-container,
+.finale-content {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 25px 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  color: var(--card-text);
+  position: relative;
+  z-index: 1;
+  border: 2px solid var(--primary-color);
+}
+
+/* Improved Welcome Hero for Mobile */
+.welcome-hero {
+  position: relative;
+  margin-bottom: 25px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-hero-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.welcome-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  text-align: center;
+}
+
+.welcome-hero-overlay .romantic-title {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+  font-size: clamp(1.5rem, 6vw, 2rem);
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.welcome-hero-overlay .romantic-subtitle {
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  opacity: 0.9;
+  font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+  line-height: 1.4;
+}
+
+/* Improved Love Features for Mobile */
+.love-features {
+  margin: 25px 0;
+}
+
+.love-feature {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(199, 21, 133, 0.2);
+  font-size: 1em;
+  color: var(--card-text);
+  line-height: 1.4;
+}
+
+.love-feature:last-child {
+  border-bottom: none;
+}
+
+.feature-emoji {
+  font-size: 1.4em;
+  margin-right: 15px;
+  width: 35px;
+  text-align: center;
+}
+
+/* Improved Name Input Section */
+.name-content h2 {
+  font-size: clamp(1.1rem, 4vw, 1.3rem);
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  line-height: 1.5;
+  text-align: center;
+}
+
+.name-content p {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.romantic-input {
+  padding: 18px 20px;
+  font-size: 1.1em;
+  border: 2px solid var(--primary-color);
+  border-radius: 20px;
+  width: 100%;
+  margin: 20px 0;
+  background: rgba(255, 255, 255, 0.95);
+  transition: all 0.3s;
+  color: var(--card-text);
+  min-height: 55px;
+}
+
+.romantic-input::placeholder {
+  color: rgba(199, 21, 133, 0.6);
+}
+
+.romantic-input:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 15px rgba(30, 144, 255, 0.3);
+  background: rgba(255, 255, 255, 1);
+}
+
+/* Improved Quiz Styles for Mobile */
+.quiz-header {
+  margin-bottom: 25px;
+}
+
+.quiz-header h2 {
+  font-size: clamp(1.4rem, 6vw, 1.8rem);
+  margin-bottom: 15px;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.quiz-header p {
+  font-size: 1.1em;
+  color: var(--card-text);
+  opacity: 0.9;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.quiz-progress {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--highlight-color);
+  padding: 15px 20px;
+  border-radius: 15px;
+  margin: 20px 0;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  font-size: 0.9em;
+}
+
+.question-container {
+  margin: 20px 0;
+}
+
+.question-container h3 {
+  font-size: clamp(1.1rem, 4.5vw, 1.4rem);
+  margin-bottom: 25px;
+  text-align: center;
+  line-height: 1.4;
+  color: var(--card-text);
+  font-weight: 600;
+  padding: 0 10px;
+  min-height: auto;
+}
+
+.options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 25px 0;
+  padding: 0 10px;
+}
+
+.option-btn {
+  padding: 20px 15px 20px 65px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--card-text);
+  border: 2px solid var(--primary-color);
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-align: left;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  line-height: 1.4;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  touch-action: manipulation;
+}
+
+.option-btn::before {
+  content: attr(data-option);
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--primary-color);
+  color: var(--highlight-color);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9em;
+  z-index: 2;
+}
+
+.option-text {
+  padding-right: 15px;
+  width: 100%;
+}
+
+.option-btn:hover,
+.option-btn:active {
+  background: rgba(255, 255, 255, 1);
+  border-color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(199, 21, 133, 0.2);
+}
+
+.quiz-result {
+  text-align: center;
+  padding: 30px 20px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.quiz-pass, .quiz-fail {
+  width: 100%;
+}
+
+.quiz-pass h1, .quiz-fail h1 {
+  font-size: clamp(1.8rem, 7vw, 2.2rem);
+  margin-bottom: 20px;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+.quiz-pass p, .quiz-fail p {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  color: var(--card-text);
+}
+
+.loading-spinner {
+  border: 4px solid rgba(199, 21, 133, 0.2);
+  border-radius: 50%;
+  border-top: 4px solid var(--primary-color);
+  width: 50px;
+  height: 50px;
+  animation: spin 1.5s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.transition-text {
+  margin-top: 20px;
+  font-style: italic;
+  opacity: 0.8;
+  color: var(--card-text);
+  font-size: 1em;
+}
+
+/* Quiz Intro */
+.quiz-intro-content {
+  border: 2px solid var(--secondary-color);
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.quiz-intro-content h1 {
+  font-size: clamp(1.8rem, 7vw, 2.2rem);
+  margin-bottom: 20px;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.quiz-intro-content p {
+  font-size: 1.1em;
+  margin-bottom: 30px;
+  line-height: 1.5;
+  color: var(--card-text);
+  opacity: 0.9;
+  text-align: center;
+}
+
+.quiz-rules {
+  margin: 30px 0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  border: 2px solid var(--secondary-color);
+}
+
+.quiz-rules p {
+  font-size: 1em;
+  margin-bottom: 12px;
+  color: var(--card-text);
+  opacity: 1;
+  line-height: 1.4;
+}
+
+.quiz-rules p:last-child {
+  margin-bottom: 0;
+}
+
+/* FW Me Question */
+.fw-me-question-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.fw-me-content {
+  background: var(--card-bg);
+  border: 2px solid var(--primary-color);
+  border-radius: 20px;
+  padding: 30px 25px;
+  max-width: 100%;
+  width: 100%;
+  text-align: center;
+  color: var(--card-text);
+}
+
+.fw-me-content h2 {
+  font-size: clamp(1.3rem, 5vw, 1.8rem);
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.fw-me-content p {
+  font-size: 1.1em;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.fw-me-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 25px 0;
+  position: relative;
+}
+
+.correct-fw-btn, .wrong-fw-btn {
+  padding: 18px 30px;
+  font-size: 1.1em;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  min-height: 55px;
+  touch-action: manipulation;
+}
+
+.correct-fw-btn {
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  color: var(--highlight-color);
+}
+
+.wrong-fw-btn {
+  background: #dc3545;
+  color: white;
+}
+
+.teasing-message {
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  border: 2px solid var(--primary-color);
+  color: var(--card-text);
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+/* Qualities Styles */
+.qualities-container {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  padding: 70px 15px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.qualities-progress {
+  max-width: 100%;
+  margin: 0 auto 20px;
+  text-align: center;
+  color: var(--highlight-color);
+  width: 100%;
+  padding: 0 15px;
+}
+
+.progress-bar {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  height: 6px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  height: 100%;
+  transition: width 0.5s ease;
+}
+
+/* FIXED FLIP CARD - BETTER BROWSER COMPATIBILITY */
+.flip-card-container {
+  perspective: 1000px;
+  width: 100%;
+  max-width: 100%;
+  margin: 15px auto;
+  cursor: pointer;
+  padding: 0 15px;
+}
+
+.flip-card {
+  width: 100%;
+  height: 480px;
+  position: relative;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d; /* Safari fix */
+  transition: transform 0.6s ease-in-out;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border: 2px solid var(--primary-color);
+  background: white;
+}
+
+.flip-card.flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d; /* Safari fix */
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; /* Safari/iOS fix */
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.flip-card-front {
+  transform: rotateY(0deg);
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, #ffb6c1 0%, #ff69b4 50%, #c71585 100%);
+}
+
+/* EXTRA SAFETY - Hide content when flipped */
+.flip-card.flipped .flip-card-front {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.3s, opacity 0.3s;
+}
+
+.flip-card:not(.flipped) .flip-card-back {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.3s, opacity 0.3s;
+}
+
+.flip-card:not(.flipped) .flip-card-front {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.flip-card.flipped .flip-card-back {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+/* Card Images */
+.card-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.card-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+  filter: brightness(1.1);
+  display: block;
+}
+
+.flip-card-back .card-hero-image {
+  opacity: 0.2;
+  filter: brightness(1.2) saturate(1.3);
+}
+
+/* Improved Card Content for Mobile */
+.flip-card-content {
+  padding: 25px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  z-index: 2;
+  height: 100%;
+}
+
+.quality-number {
+  font-size: 0.9em;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.quality-emoji-front {
+  font-size: 2.5em;
+  margin: 10px 0;
+  animation: float 3s ease-in-out infinite;
+  color: var(--primary-color);
+}
+
+.quality-title-front {
+  color: var(--primary-color);
+  font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+  margin: 12px 0;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.quality-description {
+  color: var(--card-text);
+  font-size: 0.95em;
+  line-height: 1.5;
+  margin: 12px 0;
+  text-align: center;
+  max-width: 100%;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+}
+
+.tap-hint {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-top: 15px;
+  padding: 15px 20px;
+  border: 2px dashed var(--primary-color);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 1em;
+  animation: pulse 2s ease-in-out infinite;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.tap-hint:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.02);
+}
+
+/* Back Card Specific Styles */
+.quality-emoji-back {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.quality-title-back {
+  color: white;
+  font-size: clamp(1.1rem, 4vw, 1.4rem);
+  margin-bottom: 15px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.quality-back-content {
+  color: white;
+  font-size: 0.95em;
+  line-height: 1.5;
+  margin: 12px 0;
+  text-align: center;
+  max-width: 100%;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  font-weight: 500;
+  padding: 0 5px;
+}
+
+/* Improved Buttons for Mobile */
+.romantic-btn {
+  padding: 18px 30px;
+  font-size: 1.1em;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  color: var(--highlight-color);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  font-weight: 600;
+  box-shadow: 0 5px 15px rgba(199, 21, 133, 0.2);
+  min-height: 55px;
+  touch-action: manipulation;
+  width: 100%;
+  max-width: 300px;
+}
+
+.next-quality-hint {
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  font-weight: 600;
+  margin-top: 20px;
+  padding: 18px 25px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  min-height: 55px;
+  touch-action: manipulation;
+  width: 100%;
+  max-width: 300px;
+}
+
+.romantic-btn:hover,
+.romantic-btn:active,
+.next-quality-hint:hover,
+.next-quality-hint:active {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(199, 21, 133, 0.3);
+}
+
+/* Improved Finale Section */
+.finale-content {
+  border: 2px solid var(--secondary-color);
+}
+
+.birthday-header {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.birthday-header h1 {
+  font-size: clamp(1.4rem, 6vw, 1.9rem);
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+
+.heart-rain {
+  font-size: 1.5em;
+  margin: 15px 0;
+  animation: float 3s ease-in-out infinite;
+}
+
+.all-qualities-summary {
+  margin: 25px 0;
+}
+
+.all-qualities-summary h3 {
+  font-size: 1.3em;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.qualities-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.quality-badge {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  border: 1px solid var(--primary-color);
+  color: var(--card-text);
+}
+
+.badge-emoji {
+  font-size: 1.3em;
+  margin-right: 15px;
+}
+
+.badge-title {
+  font-size: 0.95em;
+  font-weight: 500;
+}
+
+.final-love-note {
+  margin: 25px 0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  border: 1px solid var(--secondary-color);
+  text-align: left;
+  color: var(--card-text);
+  position: relative;
+  overflow: hidden;
+}
+
+.final-love-note::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/marshmallow-photos/IMG-20251101-WA0024.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.final-love-note p {
+  margin-bottom: 15px;
+  line-height: 1.5;
+  position: relative;
+  z-index: 2;
+  font-size: 1em;
+}
+
+.signature {
+  text-align: right;
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-top: 20px !important;
+  color: var(--primary-color);
+  position: relative;
+  z-index: 2;
+}
+
+/* Improved Navigation Dots */
+.quality-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+  padding: 0 15px;
+}
+
+.quality-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  touch-action: manipulation;
+}
+
+.quality-dot.active {
+  background: var(--highlight-color);
+  border-color: var(--highlight-color);
+  transform: scale(1.2);
+}
+
+.quality-dot.visited {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.qualities-instruction {
+  max-width: 100%;
+  margin: 20px auto 0;
+  text-align: center;
+  opacity: 0.9;
+  color: var(--highlight-color);
+  font-size: 0.9em;
+  line-height: 1.4;
+  padding: 0 15px;
+}
+
+.qualities-instruction p {
+  margin-bottom: 8px;
+}
+
+.qualities-instruction p:last-child {
+  margin-bottom: 0;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.4s ease-out;
+}
+
+/* Background Images */
+.App::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/marshmallow-photos/IMG-20251101-WA0009.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Enhanced Mobile Responsiveness */
+@media (max-width: 480px) {
+  .App {
+    padding: 10px;
+  }
+  
+  .welcome-content,
+  .name-content,
+  .quiz-intro-content,
+  .quiz-container,
+  .finale-content {
+    padding: 20px 15px;
+    border-radius: 18px;
+  }
+  
+  .flip-card {
+    height: 450px;
+  }
+  
+  .flip-card-content {
+    padding: 20px 15px;
+  }
+  
+  .welcome-hero-image {
+    height: 160px;
+  }
+  
+  .quality-emoji-front {
+    font-size: 2.2em;
+  }
+  
+  .quality-emoji-back {
+    font-size: 2em;
+  }
+  
+  .romantic-btn,
+  .next-quality-hint {
+    padding: 16px 25px;
+    font-size: 1.05em;
+    min-height: 50px;
+  }
+  
+  .love-feature {
+    padding: 12px 0;
+  }
+  
+  .feature-emoji {
+    font-size: 1.3em;
+    margin-right: 12px;
+    width: 30px;
+  }
+  
+  .global-music-controls {
+    padding: 10px 12px;
+    gap: 8px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 360px) {
+  .flip-card {
+    height: 420px;
+  }
+  
+  .flip-card-content {
+    padding: 18px 12px;
+  }
+  
+  .quality-title-front {
+    font-size: 1.1rem;
+  }
+  
+  .quality-description,
+  .quality-back-content {
+    font-size: 0.9em;
+  }
+  
+  .romantic-input {
+    padding: 16px 18px;
+    font-size: 1em;
+  }
+}
+
+/* Pointer Events Fix for Flip Cards */
+.flip-card-front {
+  pointer-events: auto;
+}
+
+.flip-card.flipped .flip-card-front {
+  pointer-events: none;
+}
+
+.flip-card-back {
+  pointer-events: none;
+}
+
+.flip-card.flipped .flip-card-back {
+  pointer-events: auto;
+}
